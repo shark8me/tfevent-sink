@@ -12,7 +12,8 @@
   :source-paths ["src/clojure"]
   :test-paths ["test/clojure"]
   :dependencies [[org.clojure/clojure "1.8.0"]
-                 [org.clojars.ghaskins/protobuf "3.1.0"]
+                 [org.clojars.ghaskins/protobuf "3.0.2-2"]
+                 ;[org.clojars.ghaskins/protobuf "3.1.0"]
                  ;; https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
                  [com.google.protobuf/protobuf-java "3.1.0"]
                 [com.rpl/specter "1.0.1"]]
