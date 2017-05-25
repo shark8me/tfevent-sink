@@ -31,13 +31,13 @@
      (.setWallTime (double (/ (.getTime (new java.util.Date)) 1000)))
      (.setFileVersion "brain.Event:2"))))
 
-(defn spit-events
-  "Given an output stream and seq of events, writes the bytearray form of the events
-  to the stream"
-  [^DataOutputStream output-stream events]
-  (let [tw (new TFRecordWriter output-stream)]
+(defn append-events
+  "Given an file path, appends the seq of events, in bytearray form to the file."
+  [file-path events]
+  (with-open [dos (new DataOutputStream (io/output-stream (io/file file-path) :append true))]
+  (let [tw (new TFRecordWriter dos)]
     (doseq [x (mapv #(.toByteArray %) events)]
-      (.write tw x))))
+      (.write tw x)))))
 
 ;a state atom which records the start time and the steps for each tag
 (def state-atom (atom {:wall-time 0
@@ -54,13 +54,14 @@
   (reset! state-atom {:wall-time (get-time)
                       :tags {}}))
 
-(defn event-stream
-  "returns a new DataOutputStream initialized with the TFrecord header event"
+(defn create-event-stream
+  "Initializes the event stream with the TFrecord header event, and sets the starting wall time
+  "
   [file-path]
-  (let [dos (new DataOutputStream (io/output-stream (io/file file-path)))]
+  (do
     (reset-state)
-    (spit-events dos [(start-event)])
-    dos))
+    (io/delete-file file-path true)
+    (append-events file-path [(start-event)])))
 
 (defn- update-tag-state
   "adds a tag if it doesn't exist. If it does, update the step "

@@ -9,8 +9,8 @@
     (let [fname (java.io.File/createTempFile "tfevents" ".out")
           event (protodef Event)
           tag "a/fdd2"
-          _ (with-open [fos (event-stream fname)]
-              (spit-events fos (mapv #(make-event  tag (double %)) (range 10))))
+          _ (create-event-stream fname)
+          _ (append-events fname (mapv #(make-event  tag (double %)) (range 10)))
           resp (slurp-events #(protobuf-load event %) true fname)]
       ;is every tag the same value
       (is (every? (partial = tag)
