@@ -6,6 +6,8 @@ This has been tested with version 1.1 of Tensorflow (which uses version 3.1 of p
 
 ## Usage
 
+### Example of logging scalar event (MSE) to a log file
+
 ```clojure
 (ns ;...
  (:require [tfevent-sink.event-io :as eio]))
@@ -17,9 +19,18 @@ This has been tested with version 1.1 of Tensorflow (which uses version 3.1 of p
   (eio/create-event-stream file-path)
   ;;append event to stream
   (eio/append-events file-path [ev])
-  
 
 ```
+
+### Load the file from Tensorboard
+
+```bash
+
+tensorboard --logdir="/tmp/"
+``` 
+
+Detailed instructions can be found [here](https://www.tensorflow.org/get_started/summaries_and_tensorboard)
+
 
 ## How to regenerate for newer version of Protobuf and/or Tensorflow
 
