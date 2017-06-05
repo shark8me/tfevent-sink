@@ -11,7 +11,7 @@
   :prep-tasks  ["javac" "compile"]
   :source-paths ["src/clojure"]
   :test-paths ["test/clojure"]
-  :signing  {:gpg-key "kiran.karkera@gmail.com"}
+  :signing  {:gpg-key "shark8me"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojars.ghaskins/protobuf "3.1.0-1"]
                  ;; https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
