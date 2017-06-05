@@ -1,5 +1,5 @@
-(defproject org.shark8me/tfevent-sink "0.1.2"
-  :description "FIXME: write description"
+(defproject org.shark8me/tfevent-sink "0.1.3-SNAPSHOT"
+  :description "Enables writing events from Clojure in Tensorflow format"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -16,6 +16,7 @@
                  [org.clojars.ghaskins/protobuf "3.1.0-1"]
                  ;; https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
                  [com.google.protobuf/protobuf-java "3.1.0"]
+                 [net.mikera/core.matrix "0.60.3"]
                 [com.rpl/specter "1.0.1"]]
   :javac-options ["-Xmaxerrs" "1000"]
   :javadoc-opts { :package-names ["org.tensorflow.framework"
