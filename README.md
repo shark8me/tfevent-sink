@@ -4,6 +4,12 @@ A Clojure library that consumes scalar events (such as training and validation m
 
 This has been tested with version 1.1 of Tensorflow (which uses version 3.1 of protobuf)
 
+## Importing
+
+
+[![Clojars Project](https://img.shields.io/clojars/v/org.shark8me/tfevent-sink.svg)](https://clojars.org/org.shark8me/tfevent-sink)
+
+
 ## Usage
 
 ### Example of logging scalar event (MSE) to a log file
