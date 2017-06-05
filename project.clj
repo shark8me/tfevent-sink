@@ -20,6 +20,8 @@
   :javac-options ["-Xmaxerrs" "1000"]
   :javadoc-opts { :package-names ["org.tensorflow.framework"
                   "org.tensorflow.util"]}
+  :repositories  [["releases"  {:url "https://clojars.org/repo"
+                                :creds :gpg}]]
   :plugins  [[lein-protobuf "0.1.1"]
              [lein-javadoc "0.3.0"]]
   )
