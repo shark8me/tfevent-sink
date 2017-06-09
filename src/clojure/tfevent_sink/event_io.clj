@@ -94,7 +94,12 @@
               (.setStep step)
               (.setWallTime wall-time)))))
 
-(defmulti make-event (fn ([x y] (mapv class [x y]))))
+(defmulti make-event 
+  "Multimethod that creates events. Accepts 2 arguments, the first is a tag, which is the display name of the event
+  .The second is the event data. It could be a double (for a scalar value, such as accuracy), or a array of doubles (such as the weights of a
+  single-layer ), or a vector (such as the weights of a mxn layer.
+  Returns a TFRecord Event"
+  (fn ([x y] (mapv class [x y]))))
 
 (defmethod make-event
   [String java.lang.Double]
