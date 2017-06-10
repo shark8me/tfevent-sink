@@ -1,4 +1,4 @@
-(defproject org.shark8me/tfevent-sink "0.1.3-SNAPSHOT"
+(defproject org.shark8me/tfevent-sink "0.1.3"
   :description "Enables writing events from Clojure in Tensorflow format"
   :url "http://example.com/FIXME"
   :license {:name "Eclipse Public License"
