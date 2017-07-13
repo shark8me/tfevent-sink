@@ -14,7 +14,7 @@
                  ;; https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
                  [com.google.protobuf/protobuf-java "3.1.0"]
                  ;; https://mvnrepository.com/artifact/org.tensorflow/proto
-                 [org.tensorflow/proto "1.1.0"]
+                 [org.tensorflow/proto "1.2.1"]
                  [net.mikera/core.matrix "0.60.3"]
                 [com.rpl/specter "1.0.1"]]
   :javac-options ["-Xmaxerrs" "1000"]
