@@ -40,17 +40,12 @@ Detailed instructions can be found [here](https://www.tensorflow.org/get_started
 
 ## How to regenerate for newer version of Protobuf and/or Tensorflow
 
-* Download the 3.1.1 release of protobuf java from Github (this version is used in tensorflow r1.1.)
-* Build and install protoc, verify that "protoc --version" reflects the version just downloaded
-* Copy the *.proto files from the tensorflow repo into this repo's /resources folder, including the file paths. 
-* Run "protoc --java_out=src/java <insert paths to event.proto and summary.proto> " e.g.
-protoc --java_out=src/java/ --proto_path=resources/proto/ resources/proto/tensorflow/core/util/event.proto resources/proto/tensorflow/core/framework/summary.proto resources/proto/tensorflow/core/framework/tensor.proto resources/proto/tensorflow/core/framework/tensor_shape.proto resources/proto/tensorflow/core/framework/resource_handle.proto resources/proto/tensorflow/core/framework/types.proto
-
+* Update the dependency on proto to the latest version. Link [on mvnrepository](mvnrepository.com/artifact/org.tensorflow/proto) 
 
 ## TODO
 
 * Migrate from generated java code (using protoc) to clojure-protobuf. At the moment, clojure-protobuf doesn't create events properly
-* Add API for displaying histograms
+
 ## License
 
 Copyright © 2017 shark8me
