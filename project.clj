@@ -1,6 +1,6 @@
 (defproject org.shark8me/tfevent-sink "0.1.4-SNAPSHOT"
   :description "Enables writing events from Clojure in Tensorflow format"
-  :url "http://example.com/FIXME"
+  :url "http://github.com/shark8me/tfevent-sink"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :java-source-paths [ ;sources copied from github.com/tensorflow/ecosystem for reading and writing TFRecords
