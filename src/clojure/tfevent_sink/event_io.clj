@@ -105,15 +105,20 @@
   [String java.lang.Double]
   [tag v]
   (try 
-    (let [sum1 (doto
+    (let [v1 (cond (= Double/POSITIVE_INFINITY v)
+                   Float/MAX_VALUE
+                   (= Double/NEGATIVE_INFINITY v)
+                   Float/MIN_VALUE
+                   :default (float v))
+          sum1 (doto
                    (Summary/newBuilder)
                  (.addValue
                   (.build (doto (Summary$Value/newBuilder)
                             (.setTag tag)
-                            (.setSimpleValue v)))))]
+                            (.setSimpleValue v1)))))]
       (summary tag sum1))
     (catch Exception e
-      (println (str " error in make-event " tag " - " v) (.getMessage e))
+      (println (str " error in make-event " tag " - " v " isnil? - " (nil? v) ) (.getMessage e))
       nil)))
 
 (defn build-hist
