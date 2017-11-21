@@ -104,13 +104,17 @@
 (defmethod make-event
   [String java.lang.Double]
   [tag v]
-  (let [sum1 (doto
-              (Summary/newBuilder)
-               (.addValue
-                (.build (doto (Summary$Value/newBuilder)
-                          (.setTag tag)
-                          (.setSimpleValue v)))))]
-    (summary tag sum1)))
+  (try 
+    (let [sum1 (doto
+                   (Summary/newBuilder)
+                 (.addValue
+                  (.build (doto (Summary$Value/newBuilder)
+                            (.setTag tag)
+                            (.setSimpleValue v)))))]
+      (summary tag sum1))
+    (catch Exception e
+      (println (str " error in make-event " tag " - " v) (.getMessage e))
+      nil)))
 
 (defn build-hist
   [tag values]
